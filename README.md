@@ -2,32 +2,55 @@
 
 An open-source AI travel planner that turns a natural-language trip request into a practical travel plan with flight suggestions, hotel ideas, and a day-by-day itinerary. The project uses a multi-agent workflow built with LangGraph, LangChain, FastAPI, and Google Gemini.
 
+🚀 **Live Demo:** https://multi-agent-travel-planner-9c2t.onrender.com
+
+---
+
 ## Why this project?
 
 Planning a trip usually means jumping between multiple websites, tools, and spreadsheets. This project brings that flow into one experience by combining:
 
-- a flight-search agent,
-- a hotel-research agent,
-- an itinerary-planning agent, and
-- a final response agent,
+- Flight Search Agent
+- Hotel Research Agent
+- Itinerary Planning Agent
+- Final Response Agent
 
-all coordinated through a LangGraph workflow.
+All coordinated through a LangGraph workflow to generate a complete travel plan from a single user query.
+
+---
 
 ## Features
 
 - ✈️ Flight research using AviationStack API
 - 🏨 Hotel suggestions using Tavily Search API
 - 🧠 Multi-agent orchestration with LangGraph
-- 📝 AI-generated travel itinerary using Google Gemini
-- 🌐 FastAPI backend with a simple web interface
+- 📝 AI-generated travel itinerary using Google Gemini 2.5 Flash Lite
+- 🌐 FastAPI backend with an interactive web interface
 - 💾 Conversation state persistence using PostgreSQL
-- ⚡ Fast and efficient responses powered by Google Gemini 2.5 Flash Lite
+- ⚡ Fast and efficient responses powered by Google Gemini
+
+---
+
+## Live Demo
+
+🌐 **Application:** https://multi-agent-travel-planner-9c2t.onrender.com
+
+Health Check:
+
+```text
+https://multi-agent-travel-planner-9c2t.onrender.com/health
+```
+
+---
 
 ## Tech Stack
 
 - Python 3.10+
 - FastAPI
-- Jinja2 + HTML/CSS/JavaScript
+- Jinja2
+- HTML
+- CSS
+- JavaScript
 - LangGraph
 - LangChain
 - Google Gemini 2.5 Flash Lite
@@ -35,32 +58,37 @@ all coordinated through a LangGraph workflow.
 - Tavily API
 - AviationStack API
 
+---
+
 ## Project Structure
 
 ```text
 .
-├── app.py                # FastAPI app entry point
-├── backend.py            # LangGraph travel workflow
-├── requirements.txt      # Python dependencies
-├── static/               # Static frontend assets
-├── templates/            # HTML templates
-└── tools/                # Flight and web search integrations
+├── app.py                # FastAPI application
+├── backend.py            # LangGraph workflow
+├── requirements.txt
+├── templates/
+├── static/
+└── tools/
 ```
+
+---
 
 ## Prerequisites
 
-Before running the project locally, make sure you have:
+Before running locally, ensure you have:
 
-- Python 3.10 or newer installed
-- PostgreSQL running and accessible
-- API keys for:
-  - Google Gemini
-  - Tavily
-  - AviationStack
+- Python 3.10+
+- PostgreSQL
+- Google Gemini API Key
+- Tavily API Key
+- AviationStack API Key
+
+---
 
 ## Environment Variables
 
-Create a `.env` file in the project root with the following variables:
+Create a `.env` file:
 
 ```env
 DATABASE_URL=postgresql://user:password@localhost:5432/travel_db
@@ -69,6 +97,8 @@ AVIATIONSTACK_API_KEY=your_aviationstack_api_key
 TAVILY_API_KEY=your_tavily_api_key
 DEFAULT_ORIGIN_IATA=DAC
 ```
+
+---
 
 ## Installation
 
@@ -84,19 +114,21 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Running the App
+---
 
-Start the FastAPI server:
+## Running the Application
 
 ```bash
 python app.py
 ```
 
-Then open your browser at:
+Open your browser:
 
 ```text
 http://127.0.0.1:8000/
 ```
+
+---
 
 ## API Endpoints
 
@@ -106,36 +138,43 @@ http://127.0.0.1:8000/
 GET /health
 ```
 
-### Plan a Trip
+### Travel Planner
 
 ```http
 POST /api/travel
 ```
 
-Example request:
+Example:
 
 ```bash
 curl -X POST http://127.0.0.1:8000/api/travel \
-  -H "Content-Type: application/json" \
-  -d '{"message":"Plan a 3-day trip to Tokyo with a budget of $1200"}'
+-H "Content-Type: application/json" \
+-d '{"message":"Plan a 3-day trip to Tokyo with a budget of $1200"}'
 ```
 
-## How the Workflow Works
+---
 
-1. The user submits a travel request.
-2. The Flight Agent gathers flight information using AviationStack.
-3. The Hotel Agent searches for accommodation suggestions using Tavily.
-4. The Itinerary Agent generates a detailed travel plan using Google Gemini.
-5. The Final Response Agent combines all results into a structured travel guide.
+## How It Works
+
+1. User submits a travel request.
+2. Flight Agent retrieves flight information using AviationStack.
+3. Hotel Agent finds accommodation suggestions using Tavily.
+4. Itinerary Agent creates a detailed travel itinerary using Google Gemini.
+5. Final Agent formats everything into a structured travel guide.
+
+---
 
 ## Contributing
 
-Contributions are welcome! If you'd like to improve the project:
+Contributions are welcome!
 
 1. Fork the repository.
-2. Create a feature branch.
+2. Create a new feature branch.
 3. Commit your changes.
-4. Open a Pull Request.
+4. Push the branch.
+5. Open a Pull Request.
+
+---
 
 ## Acknowledgments
 
